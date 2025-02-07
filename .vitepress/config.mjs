@@ -6,6 +6,7 @@ export default defineConfig({
   head: [["link", { rel: "icon", href: "/logo.svg" }]],
   title: "My Awesome Project",
   description: "A VitePress Site",
+  base: "/docs-website/",
   themeConfig: {
     outlineTitle: "文章目录",
     outline: [2, 6],
