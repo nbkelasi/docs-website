@@ -3,10 +3,10 @@ import { set_sidebar } from "../utils/auto_sidebar.mjs";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  head: [["link", { rel: "icon", href: "/logo.svg" }]],
+  base: "/docs-website/",
+  head: [["link", { rel: "icon", href: "/docs-website/logo.svg" }]],
   title: "My Awesome Project",
   description: "A VitePress Site",
-  base: "/docs-website/",
   themeConfig: {
     outlineTitle: "文章目录",
     outline: [2, 6],
@@ -16,7 +16,9 @@ export default defineConfig({
       { 
         text: '前端',
         items: [
-          { text: 'JavaScript', link: '/backend/JavaScript' }
+          { text: 'html5', link: '/backend/html5' },
+          { text: 'JavaScript', link: '/backend/JavaScript' },
+          { text: 'Vue2', link: '/backend/vue2' },
         ]
        },
       { 
@@ -24,7 +26,13 @@ export default defineConfig({
         items: [
           { text: 'nodejs', link: '/front_end/nodejs' }
         ]
-      }
+      },
+      { 
+        text: '工具',
+        items: [
+          { text: 'git', link: '/tool_docs/git' }
+        ]
+      },
     ],
     // 搜索栏
     search: {
@@ -47,18 +55,12 @@ export default defineConfig({
       }
     },
 
-    // sidebar: [
-    //   {
-    //     text: 'Examples',
-    //     items: [
-    //       { text: 'Markdown Examples', link: '/markdown-examples' },
-    //       { text: 'Runtime API Examples', link: '/api-examples' }
-    //     ]
-    //   }
-    // ],
     sidebar: { 
       "/front_end/nodejs": set_sidebar("/front_end/nodejs"),
       "/backend/JavaScript": set_sidebar("/backend/JavaScript"),
+      "/backend/html5": set_sidebar("/backend/html5"),
+      "/backend/vue2": set_sidebar("/backend/vue2"),
+      "/tool_docs/git": set_sidebar("/tool_docs/git"),
     },
     sidebar: false, // 关闭侧边栏
     aside: "left", // 设置右侧侧边栏在左侧显示
