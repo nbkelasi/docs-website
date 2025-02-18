@@ -4,9 +4,7 @@ js笔记的整合
 
 
 
-# js方法
-
-<br/>
+## js方法
 
 <!--@include: js方法.md-->
 
@@ -14,8 +12,6 @@ js笔记的整合
 
 
 
-# promise
-
-<br/>
+## promise
 
 <!--@include: promise.md-->

@@ -11,10 +11,10 @@ hero:
     alt: 背景图片
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: 永远的 javaScript
       link: /markdown-examples
     - theme: alt
-      text: API Examples
+      text: 解决方案
       link: /api-examples
 
 features:

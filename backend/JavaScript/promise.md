@@ -1,6 +1,6 @@
-## promise 入门简介
+### promise 入门简介
 
-###  JS 中分同步Api 和 异步Api。
+####  JS 中分同步Api 和 异步Api。
 
 同步API：只有当前API执行完成后，才能继续执行下一个API
 
@@ -27,7 +27,7 @@ setTimeout定时器要在2s秒后才执行，js引擎不会卡在定时器这，
 
 
 
-### 同步API, 异步API的区别（ 获取返回值 ）
+#### 同步API, 异步API的区别（ 获取返回值 ）
 
 同步API可以从返回值中拿到API执行的结果, 但是异步API是不可以的
 
@@ -52,7 +52,7 @@ function getMsg () {
 const msg = getMsg(); // msg 的值是 undefined
 ```
 
-###  回调函数
+####  回调函数
 
 自己定义函数让别人去调用。
 
@@ -71,7 +71,7 @@ getMsg((result) => {
 })
 ```
 
-### 代码执行顺序分析
+#### 代码执行顺序分析
 
 ```js
 console.log('代码开始执行');
@@ -88,14 +88,14 @@ console.log('代码结束执行')
 
 > 异步代码执行区的异步函数执行完成，将要执行专属的回调函数时，就会将回调函数放入回调函数队列，等同步代码执行区的代码执行完成后，就把回调函数队列的回调函数加入同步代码执行区。
 
-###  JS 常见异步编程
+####  JS 常见异步编程
 
 - fs 文件操作
 - 数据库操作
 - AJAX 网络请求
 - 定时器 （setTimeout）
 
-### Promise 出现的需求
+#### Promise 出现的需求
 
 我们先来个场景：
 
@@ -194,9 +194,9 @@ p1.then(r1 => {
 })
 ```
 
-## Promise 常见常见练习
+### Promise 常见常见练习
 
-###  promise 实践练习-fs读取文件
+####  promise 实践练习-fs读取文件
 
 ```js
 // 不使用 promise
@@ -222,7 +222,7 @@ promise.then(result => {
 })
 ```
 
-### promise 实践练习-AJAX请求
+#### promise 实践练习-AJAX请求
 
 ```js
 // 原生
@@ -282,7 +282,7 @@ btn.addEventListener("click", () => {
 })
 ```
 
-### util.promisify 方法进行 promise 风格转化
+#### util.promisify 方法进行 promise 风格转化
 
 > 这个是用在node.js 的环境下，我在用node.js 写后端时用到过这种方法
 
@@ -301,7 +301,7 @@ mineReadFile('./test.txt').then(result => {
 })
 ```
 
-### promise 封装练习-AJAX请求
+#### promise 封装练习-AJAX请求
 
 ```js
 /** 
@@ -335,11 +335,11 @@ sendAJAX('https://api.apiopen.top/getJoke').then(result => {
 })
 ```
 
-##  promise 的详细介绍
+###  promise 的详细介绍
 
 在了解 promise 的基本流程前，先要知道 promise的一些基本属性
 
-### promise 的状态
+#### promise 的状态
 
 promise 的状态时 promise实例对象中的一个属性 **[PromiseState]**
 
@@ -349,7 +349,7 @@ promise 的状态时 promise实例对象中的一个属性 **[PromiseState]**
 
 > 状态只能由 `Pending` 变为 `Fulfilled` 或由 `Pending` 变为 `Rejected` ，且状态改变之后不会在发生变化，会一直保持这个状态。
 
-### promise 对象的值
+#### promise 对象的值
 
 实例对象中的另一个属性 **[PromiseResult]**
 
@@ -358,13 +358,13 @@ promise 的状态时 promise实例对象中的一个属性 **[PromiseState]**
 - resolve
 - reject
 
-### promise 的基本流程
+#### promise 的基本流程
 
 ![img](watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5qC86Zu354uQ5oCd,size_20,color_FFFFFF,t_70,g_se,x_16.png)
 
-### promise Api 的详细介绍
+#### promise Api 的详细介绍
 
-####  Promise 构造函数：Promise(executor)
+#####  Promise 构造函数：Promise(executor)
 
 (1) executor 函数：执行器 (resolve, reject) => {}
 
@@ -387,7 +387,7 @@ let p = new Promise((resolve, reject) => {
 //222
 ```
 
-#### Promise.prototype.then 方法 (onResolved, onRejected) => {}
+##### Promise.prototype.then 方法 (onResolved, onRejected) => {}
 
 (1) onResolved 函数：成功的回调函数 (value) => {}
 
@@ -403,7 +403,7 @@ promise.then(value => {
 })
 ```
 
-#### Promise.catch 方法：(reason) => {}
+##### Promise.catch 方法：(reason) => {}
 
 (1) reason：失败的数据或Promise对象
 
@@ -415,7 +415,7 @@ sendAJAX('https://api.apiopen.top/getJoke').catch(reason => {
          })
 ```
 
-#### Promise.resolve 方法：(value) => {}
+##### Promise.resolve 方法：(value) => {}
 
 (1) value：成功的数据或 promise 对象
 
@@ -431,7 +431,7 @@ let p2 = Promise.resolve(new Promise((resolve, reject) => {
 console.log(p2);
 ```
 
-####  Promise.reject 方法：(reason) => {}
+#####  Promise.reject 方法：(reason) => {}
 
 (1) reason：失败的原因
 
@@ -444,7 +444,7 @@ let p2 = Promise.reject(new Promise((resolve, reject) => {
 }))
 ```
 
-#### Promise.all 方法：(promises) => {}
+##### Promise.all 方法：(promises) => {}
 
 (1) promises：包含 n 个 promise 的数组
 
@@ -452,7 +452,7 @@ let p2 = Promise.reject(new Promise((resolve, reject) => {
 
 
 
-#### Promise.race 方法：(promises) => {}
+##### Promise.race 方法：(promises) => {}
 
 (1) promises：包含 n 个 promise 的数组
 
@@ -460,7 +460,7 @@ let p2 = Promise.reject(new Promise((resolve, reject) => {
 
 
 
-## promise 的几个关键问题
+### promise 的几个关键问题
 
 #### 一：如何改变 promise 的状态
 
