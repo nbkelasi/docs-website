@@ -12,14 +12,14 @@ hero:
   actions:
     - theme: brand
       text: 永远的 javaScript
-      link: /markdown-examples
+      link: /deepJavaScript
     - theme: alt
       text: 解决方案
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 现代 JavaScript 教程
+    details: 访问： <a target="_blank" href="https://zh.javascript.info">https://zh.javascript.info/</a>
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature C

@@ -186,7 +186,7 @@ keyStr in obj=>布尔值也可以用来区分,效果和hasOwnProperty一样
 
 抽象图
 
-![](\public\Snipaste_2025-02-18_18-20-16.png)
+<img src="\public\Snipaste_2025-02-18_18-20-16.png" style="zoom:80%;" />
 
 
 
@@ -257,3 +257,106 @@ function Animal(age) {
 ```
 
 解决了原型继承和构造函数继承的一些问题。
+
+
+
+
+
+### 闭包
+
+一个函数访问外部的变量,**一般在不想使用全局变量的时候或数据持久化的时候可以用闭包**
+
+通过闭包函数形成独立实例的变量，不会造成全局污染。
+
+**应用：**返回初这个函数，让其持久存在，访问上述的变量，就可以独立于全局变量。
+
+```js
+function fn(){
+//闭包部分
+var b = new Array(100).fill('Green');
+    function inner(){
+        let innerB = b;
+        return innerB[0]+'dan'
+    }
+//闭包end      只有inner函数才能对b进行修改	
+    return inner;
+}
+
+
+var closure = fn()
+
+
+//释放闭包
+closure = null；
+```
+
+**使用闭包**
+
+1. 在函数内声明一个变量，避免外部访问
+2. 在该函数内再声明一个函数访问上述变量（闭包）
+3. 返回函数内部的函数
+
+```js
+function fn() {  //套函数可以保证num不被外部访问
+            var num = 1;
+            function f() {
+                return num++;
+            }
+            return f; //持久化使用这个闭包
+        }
+        var btns = document.querySelectorAll('button');
+        btns.forEach(function (btn) {
+            btn.onclick = function (e) {
+                var clusure = fn();
+                var timer = setInterval(function () {
+                    e.target.innerText = clusure();
+                    if(e.target.innerText > 5){
+                        //结束
+                        clusure = null;
+                        clearInterval(timer);
+                        e.target.innerText = '结束';
+                    }
+                }, 1000)
+            }
+        })
+```
+
+
+
+### 事件流
+
+ **事件在 DOM 结构中传播的路径和顺序**
+
+先从上到下(捕获) ，再从下到上(冒泡)
+
+
+
+DOM事件绑定方式控制
+
+- event.stopPropagation() 方法阻止捕获和冒泡阶段中当前事件
+- event.preventDefault()  禁止表单提交，禁止默认行为
+
+**事件委托**
+
+事件流办不到的场景，委托其他元素来做一些行为。
+
+
+
+this,e.currentTarget   是固定帮等事件的元素
+
+e.target  是事件源对象
+
+
+
+### 垃圾回收（garbage collection）
+
+系统空闲时自动扫描内存，清理垃圾。
+
+两种算法：
+
+- 最近访问的
+  采用的引用计数法-----引用数不为0则不会被清理
+
+- 不常访问的
+
+  采用标记清除，扫描出window不可达，标记为垃圾，下一次扫描清除垃圾。
