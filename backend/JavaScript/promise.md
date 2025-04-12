@@ -194,7 +194,7 @@ p1.then(r1 => {
 })
 ```
 
-### Promise 常见常见练习
+### Promise 常见练习
 
 ####  promise 实践练习-fs读取文件
 

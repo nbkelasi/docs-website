@@ -19,6 +19,7 @@ export default defineConfig({
           { text: 'html5', link: '/backend/html5' },
           { text: 'JavaScript', link: '/backend/JavaScript' },
           { text: 'Vue2', link: '/backend/vue2' },
+          { text: 'react', link: '/backend/react' },
         ]
        },
       { 
@@ -30,7 +31,7 @@ export default defineConfig({
       { 
         text: '工具',
         items: [
-          { text: 'git', link: '/tool_docs/git' }
+          { text: 'git', link: '/tool_docs/git' },
         ]
       },
     ],
@@ -60,6 +61,7 @@ export default defineConfig({
       "/backend/JavaScript": set_sidebar("/backend/JavaScript"),
       "/backend/html5": set_sidebar("/backend/html5"),
       "/backend/vue2": set_sidebar("/backend/vue2"),
+      "/backend/react": set_sidebar("/backend/react"),
       "/tool_docs/git": set_sidebar("/tool_docs/git"),
     },
     sidebar: false, // 关闭侧边栏
